@@ -1,24 +1,54 @@
 {
-	"name": "full-stack-react",
-	"version": "1.0.0",
-	"type": "module",
-	"workspaces": [
-		"server",
-		"client"
-	],
-	"scripts": {
-		"dev": "concurrently \"npm:dev:*\"",
-		"dev:client": "npm run dev --workspace=client",
-		"dev:server": "npm run dev --workspace=server",
-		"lint": "prettier . --check"
-	},
-	"devDependencies": {
-		"concurrently": "^8.2.2",
-		"prettier": "^3.1.0"
-	},
-	"dependencies": {
-		"axios": "^1.6.2",
-		"dotenv": "^16.3.1",
-		"postgres": "^3.4.3"
-	}
+  "private": true,
+  "packageManager": "pnpm@8.2.0",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=7"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint-staged": "lint-staged",
+    "prettier": "prettier --write --ignore-unknown .",
+    "prettier:check": "prettier --check --ignore-unknown .",
+    "test": "pnpm lint && pnpm prettier:check"
+  },
+  "git": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.0.18",
+    "clsx": "^2.0.0",
+    "express": "^4.18.2",
+    "geist": "^1.0.0",
+    "next": "14.0.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/node": "20.8.9",
+    "@types/react": "18.2.33",
+    "@types/react-dom": "18.2.14",
+    "@vercel/git-hooks": "^1.0.0",
+    "autoprefixer": "^10.4.16",
+    "daisyui": "^4.0.3",
+    "eslint": "^8.52.0",
+    "eslint-config-next": "^14.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-unicorn": "^48.0.1",
+    "lint-staged": "^15.0.2",
+    "postcss": "^8.4.31",
+    "prettier": "3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "tailwindcss": "^3.3.5",
+    "typescript": "5.2.2"
+  }
 }
